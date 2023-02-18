@@ -10,9 +10,19 @@ class FeatureNotifier extends StatefulWidget {
 class _FeatureNotifierState extends State<FeatureNotifier> {
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(
+    return SizedBox(
         child: Center(
-      child: Text("click to see new available feature!"),
+      child: Column(
+        children: [
+          Text("Feature Title and stuff"),
+          TextButton(
+            child: Text("close feature"),
+            onPressed: () {
+              print("close Feature");
+            },
+          )
+        ],
+      ),
     ));
   }
 }
