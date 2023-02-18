@@ -1,7 +1,9 @@
 import 'package:feature_notifier/feature_notifier.dart';
+import 'package:feature_notifier/utils/feature_notifier_init.dart';
 import 'package:flutter/material.dart';
 
 void main() {
+  featureNotifierInit();
   runApp(const MyApp());
 }
 

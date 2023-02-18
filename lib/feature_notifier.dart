@@ -1,3 +1,4 @@
+import 'package:feature_notifier/utils/storage.dart';
 import 'package:flutter/material.dart';
 
 class FeatureNotifier extends StatefulWidget {
@@ -9,20 +10,28 @@ class FeatureNotifier extends StatefulWidget {
 
 class _FeatureNotifierState extends State<FeatureNotifier> {
   @override
+  void initState() {
+    super.initState();
+    FeatureNotifierStorage.write(true);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SizedBox(
         child: Center(
-      child: Column(
-        children: [
-          Text("Feature Title and stuff"),
-          TextButton(
-            child: Text("close feature"),
-            onPressed: () {
-              print("close Feature");
-            },
-          )
-        ],
-      ),
+      child: !FeatureNotifierStorage.read("isViewed")
+          ? Column(
+              children: [
+                Text("Feature Title and stuff"),
+                TextButton(
+                  child: Text("close feature"),
+                  onPressed: () {
+                    print("close Feature");
+                  },
+                )
+              ],
+            )
+          : Container(),
     ));
   }
 }

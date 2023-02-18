@@ -1,16 +1,16 @@
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:get_storage/get_storage.dart';
 
 class FeatureNotifierStorage {
-  static dynamic storageInstance = SharedPreferences.getInstance();
-  static bool isViewed = false;
+  static bool? isViewed;
 
-  static write(String key) async {
-    storageInstance = await SharedPreferences.getInstance();
-    await storageInstance!.setBool('isViewed', true);
+  static write(bool? value) {
+    final storage = GetStorage();
+    storage.write("isViewed", true);
+    isViewed = storage.read("isViewed");
   }
 
-  static read(String value) async {
-    storageInstance = await SharedPreferences.getInstance();
-    isViewed = storageInstance!.getBool('isViewed') ?? false;
+  static read(String key) {
+    final storage = GetStorage();
+    isViewed = storage.read("isViewed");
   }
 }
