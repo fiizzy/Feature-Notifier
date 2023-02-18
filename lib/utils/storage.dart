@@ -6,7 +6,7 @@ class FeatureNotifierStorage {
 
   static write(bool? value) {
     final storage = GetStorage();
-    storage.write("isViewed", true);
+    storage.write("isViewed", value);
     isViewed = storage.read("isViewed");
     print("the value being written is $isViewed");
   }
