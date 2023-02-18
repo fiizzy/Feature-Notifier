@@ -10,16 +10,11 @@ class FeatureNotifier extends StatefulWidget {
 
 class _FeatureNotifierState extends State<FeatureNotifier> {
   @override
-  void initState() {
-    super.initState();
-    FeatureNotifierStorage.write(true);
-  }
-
-  @override
   Widget build(BuildContext context) {
+    FeatureNotifierStorage.write(true);
     return SizedBox(
         child: Center(
-      child: !FeatureNotifierStorage.read("isViewed")
+      child: FeatureNotifierStorage.isViewed
           ? Column(
               children: [
                 Text("Feature Title and stuff"),
