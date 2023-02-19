@@ -52,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Padding(
                 padding: EdgeInsets.all(20),
-                child: FeatureNotifier.barNotifier()),
+                child: FeatureNotifier.cardNotifier()),
             const Text(
               'You have pushed the button this many times:',
             ),

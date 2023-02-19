@@ -1,14 +1,14 @@
 import 'package:feature_notifier/utils/storage.dart';
 import 'package:flutter/material.dart';
 
-class BarDisplayNotifier extends StatefulWidget {
-  const BarDisplayNotifier({super.key});
+class BarNotifier extends StatefulWidget {
+  const BarNotifier({super.key});
 
   @override
-  State<BarDisplayNotifier> createState() => _BarDisplayNotifierState();
+  State<BarNotifier> createState() => _BarNotifierState();
 }
 
-class _BarDisplayNotifierState extends State<BarDisplayNotifier> {
+class _BarNotifierState extends State<BarNotifier> {
   @override
   Widget build(BuildContext context) {
     print("Last save value is ${FeatureNotifierStorage.read(1)}");
