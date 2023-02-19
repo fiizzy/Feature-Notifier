@@ -11,10 +11,10 @@ class FeatureNotifier extends StatefulWidget {
 class _FeatureNotifierState extends State<FeatureNotifier> {
   @override
   Widget build(BuildContext context) {
-    print("Last save value is ${FeatureNotifierStorage.isViewed}");
+    print("Last save value is ${FeatureNotifierStorage.read(1)}");
     return SizedBox(
         child: Center(
-      child: !FeatureNotifierStorage.isViewed
+      child: !FeatureNotifierStorage.read(1)
           ? Column(
               children: [
                 Text("Feature Title and stuff"),
@@ -22,7 +22,7 @@ class _FeatureNotifierState extends State<FeatureNotifier> {
                   child: Text("close feature"),
                   onPressed: () {
                     setState(() {
-                      FeatureNotifierStorage.write(true);
+                      FeatureNotifierStorage.write(value: true, id: 1);
                     });
                     print("close Feature");
                   },

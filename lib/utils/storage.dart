@@ -2,18 +2,14 @@ import 'package:get_storage/get_storage.dart';
 
 class FeatureNotifierStorage {
   static GetStorage storage = GetStorage();
-  static bool isViewed = storage.read("isViewed") ?? false;
 
-  static write(bool? value) {
+  static write({required bool value, required int id}) {
     final storage = GetStorage();
-    storage.write("isViewed", value);
-    isViewed = storage.read("isViewed");
-    print("the value being written is $isViewed");
+    storage.write("isViewed/$id", value);
   }
 
-  static read(String key) {
+  static bool read(int id) {
     final storage = GetStorage();
-    isViewed = storage.read("isViewed");
-    print("the value being read is $isViewed");
+    return storage.read("isViewed/$id") ?? false;
   }
 }
