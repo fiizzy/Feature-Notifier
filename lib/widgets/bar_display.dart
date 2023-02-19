@@ -51,7 +51,7 @@ class _BarDisplayNotifierState extends State<BarDisplayNotifier> {
                                 ],
                               ),
                               GestureDetector(
-                                child: Icon(Icons.cancel_sharp),
+                                child: Icon(Icons.close),
                                 onTap: () {
                                   setState(() {
                                     FeatureNotifierStorage.write(
@@ -65,6 +65,17 @@ class _BarDisplayNotifierState extends State<BarDisplayNotifier> {
                       Text(
                           "Checkout the new feature that we just released and make.",
                           style: TextStyle(fontSize: 16)),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 12.0),
+                        child: ElevatedButton(
+                          child: Text("Explore Feature"),
+                          onPressed: () {},
+                          style: ButtonStyle(
+                              elevation: MaterialStateProperty.all<double>(10),
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  Color.fromARGB(255, 43, 93, 45))),
+                        ),
+                      )
                     ],
                   ),
                 ));
