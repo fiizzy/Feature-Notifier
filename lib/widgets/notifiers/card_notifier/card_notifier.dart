@@ -1,14 +1,93 @@
 import 'package:feature_notifier/utils/storage.dart';
+import 'package:feature_notifier/widgets/notifiers/card_notifier/interface_card_notifier.dart';
 import 'package:flutter/material.dart';
 
-class CardNotifier extends StatefulWidget {
-  const CardNotifier({super.key});
+class CardFeatureNotifier extends StatefulWidget
+    implements ICardFeatureNotifier {
+  CardFeatureNotifier({
+    super.key,
+    required this.featureKey,
+    required this.buttonText,
+    required this.onClose,
+    required this.description,
+    required this.onTapCard,
+    required this.title,
+    this.backgroundColor,
+    this.buttonTextColor,
+    this.buttonTextFontSize,
+    this.descriptionColor,
+    this.descriptionFontSize,
+    this.icon,
+    this.onTapButton,
+    this.strokeColor,
+    this.strokeWidth,
+    this.titleColor,
+    this.titleFontSize,
+  });
 
   @override
-  State<CardNotifier> createState() => _CardNotifierState();
+  State<CardFeatureNotifier> createState() => _CardFeatureNotifierState();
+
+  @override
+  Color? backgroundColor;
+
+  @override
+  String buttonText;
+
+  @override
+  Color? buttonTextColor;
+
+  @override
+  double? buttonTextFontSize;
+
+  @override
+  String description;
+
+  @override
+  Color? descriptionColor;
+
+  @override
+  double? descriptionFontSize;
+
+  @override
+  Widget? icon;
+
+  @override
+  void Function() onClose;
+
+  @override
+  void Function()? onTapButton;
+
+  @override
+  void Function() onTapCard;
+
+  @override
+  Color? strokeColor;
+
+  @override
+  double? strokeWidth;
+
+  ///This is the tile of the feature that you want to show to your users
+  @override
+  String title;
+
+  @override
+  Color? titleColor;
+
+  @override
+  double? titleFontSize;
+
+  @override
+  Color? buttonBackgroundColor;
+
+  @override
+  bool? showIcon = true;
+
+  @override
+  int featureKey;
 }
 
-class _CardNotifierState extends State<CardNotifier> {
+class _CardFeatureNotifierState extends State<CardFeatureNotifier> {
   @override
   Widget build(BuildContext context) {
     print("Last save value is ${FeatureNotifierStorage.read(1)}");

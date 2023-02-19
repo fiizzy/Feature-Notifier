@@ -1,5 +1,5 @@
 import 'package:feature_notifier/feature_notifier.dart';
-import 'package:feature_notifier/widgets/notifiers/card_notifier.dart';
+import 'package:feature_notifier/widgets/notifiers/card_notifier/card_notifier.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
@@ -51,7 +51,16 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Padding(padding: EdgeInsets.all(20), child: CardNotifier()),
+            Padding(
+                padding: const EdgeInsets.all(20),
+                child: CardFeatureNotifier(
+                  title: "Testing this out",
+                  buttonText: 'Just a Button',
+                  description: '',
+                  featureKey: 1,
+                  onClose: () {},
+                  onTapCard: () {},
+                )),
             const Text(
               'You have pushed the button this many times:',
             ),
