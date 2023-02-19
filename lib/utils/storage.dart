@@ -12,4 +12,8 @@ class FeatureNotifierStorage {
     final storage = GetStorage();
     return storage.read("isViewed/$id") ?? false;
   }
+
+  static erase() {
+    GetStorage().erase();
+  }
 }
