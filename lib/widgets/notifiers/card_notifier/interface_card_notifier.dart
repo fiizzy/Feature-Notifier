@@ -8,7 +8,7 @@ abstract class ICardFeatureNotifier {
   late String description;
   late Color? descriptionColor;
   late double? descriptionFontSize;
-  late String buttonText;
+  late String? buttonText;
   late Color? buttonTextColor;
   late double? buttonTextFontSize;
   late Color? buttonBackgroundColor;
@@ -20,4 +20,5 @@ abstract class ICardFeatureNotifier {
   late Color? strokeColor;
   late double? strokeWidth;
   late void Function() onTapCard;
+  late bool? hasButton;
 }

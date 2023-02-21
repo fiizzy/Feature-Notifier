@@ -55,8 +55,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 padding: const EdgeInsets.all(20),
                 child: CardFeatureNotifier(
                   title: "Testing this out",
-                  buttonText: 'Just a Button',
-                  description: '',
+                  hasButton: true,
+                  // buttonText: 'Just a Button',
+                  description:
+                      'You can now show items without inviting friends!',
                   featureKey: 1,
                   onClose: () {},
                   onTapCard: () {},

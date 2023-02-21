@@ -4,26 +4,26 @@ import 'package:flutter/material.dart';
 
 class CardFeatureNotifier extends StatefulWidget
     implements ICardFeatureNotifier {
-  CardFeatureNotifier({
-    super.key,
-    required this.featureKey,
-    required this.buttonText,
-    required this.onClose,
-    required this.description,
-    required this.onTapCard,
-    required this.title,
-    this.backgroundColor,
-    this.buttonTextColor,
-    this.buttonTextFontSize,
-    this.descriptionColor,
-    this.descriptionFontSize,
-    this.icon,
-    this.onTapButton,
-    this.strokeColor,
-    this.strokeWidth,
-    this.titleColor,
-    this.titleFontSize,
-  });
+  CardFeatureNotifier(
+      {super.key,
+      required this.featureKey,
+      required this.onClose,
+      required this.description,
+      required this.onTapCard,
+      required this.title,
+      this.buttonText,
+      this.backgroundColor,
+      this.buttonTextColor,
+      this.buttonTextFontSize,
+      this.descriptionColor,
+      this.descriptionFontSize,
+      this.icon,
+      this.onTapButton,
+      this.strokeColor,
+      this.strokeWidth,
+      this.titleColor,
+      this.titleFontSize,
+      this.hasButton});
 
   @override
   State<CardFeatureNotifier> createState() => _CardFeatureNotifierState();
@@ -32,7 +32,7 @@ class CardFeatureNotifier extends StatefulWidget
   Color? backgroundColor;
 
   @override
-  String buttonText;
+  String? buttonText;
 
   @override
   Color? buttonTextColor;
@@ -85,13 +85,17 @@ class CardFeatureNotifier extends StatefulWidget
 
   @override
   int featureKey;
+
+  @override
+  bool? hasButton = false;
 }
 
 class _CardFeatureNotifierState extends State<CardFeatureNotifier> {
   @override
   Widget build(BuildContext context) {
-    print("Last save value is ${FeatureNotifierStorage.read(1)}");
-    return !FeatureNotifierStorage.read(1)
+    print(
+        "Last save value is ${FeatureNotifierStorage.read(widget.featureKey)}");
+    return !FeatureNotifierStorage.read(widget.featureKey)
         ? LayoutBuilder(builder: (context, constraint) {
             return Container(
                 padding: EdgeInsets.all(12),
@@ -121,10 +125,10 @@ class _CardFeatureNotifierState extends State<CardFeatureNotifier> {
                                   SizedBox(
                                     width: constraint.maxWidth * .7,
                                     child: Text(
-                                      "We have a new feature!",
+                                      widget.title,
                                       style: TextStyle(
                                           fontWeight: FontWeight.w700,
-                                          fontSize: 16),
+                                          fontSize: widget.titleFontSize ?? 16),
                                     ),
                                   ),
                                 ],
@@ -136,24 +140,32 @@ class _CardFeatureNotifierState extends State<CardFeatureNotifier> {
                                     FeatureNotifierStorage.write(
                                         value: true, id: 1);
                                   });
+                                  widget.onClose();
                                   print("close Feature");
                                 },
                               )
                             ]),
                       ),
-                      Text(
-                          "Checkout the new feature that we just released and make.",
-                          style: TextStyle(fontSize: 16)),
+                      Text(widget.description,
+                          style: TextStyle(
+                              fontSize: widget.descriptionFontSize ?? 16)),
                       Padding(
                         padding: const EdgeInsets.only(top: 12.0),
-                        child: ElevatedButton(
-                          child: Text("Explore Feature"),
-                          onPressed: () {},
-                          style: ButtonStyle(
-                              elevation: MaterialStateProperty.all<double>(10),
-                              backgroundColor: MaterialStateProperty.all<Color>(
-                                  Color.fromARGB(255, 43, 93, 45))),
-                        ),
+                        child: widget.hasButton != null &&
+                                widget.hasButton != false
+                            ? ElevatedButton(
+                                onPressed: () {},
+                                style: ButtonStyle(
+                                    elevation:
+                                        MaterialStateProperty.all<double>(10),
+                                    backgroundColor:
+                                        MaterialStateProperty.all<Color>(
+                                            Color.fromARGB(255, 43, 93, 45))),
+                                child: Text(widget.buttonText == null
+                                    ? "Explore Feature"
+                                    : widget.buttonText!),
+                              )
+                            : Container(),
                       )
                     ],
                   ),
