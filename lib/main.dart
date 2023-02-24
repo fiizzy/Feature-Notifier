@@ -1,4 +1,5 @@
 import 'package:feature_notifier/feature_notifier.dart';
+import 'package:feature_notifier/widgets/notifiers/bottom_modal_sheet_notifier/bottom_modal_sheet_notifier.dart';
 import 'package:feature_notifier/widgets/notifiers/card_notifier/card_notifier.dart';
 import 'package:flutter/material.dart';
 
@@ -51,6 +52,12 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            // FeatureBottomModalSheetNotifier(
+            //     featureKey: 2,
+            //     onClose: () {},
+            //     description: "description",
+            //     onTapCard: () {},
+            //     title: "Bottom Modal"),
             Padding(
                 padding: const EdgeInsets.all(20),
                 child: CardFeatureNotifier(

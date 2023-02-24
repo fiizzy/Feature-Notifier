@@ -1,10 +1,10 @@
+import 'package:feature_notifier/interface/interface_notifier.dart';
 import 'package:feature_notifier/utils/icon_selector.dart';
 import 'package:feature_notifier/utils/storage.dart';
 import 'package:feature_notifier/widgets/notifiers/card_notifier/interface_card_notifier.dart';
 import 'package:flutter/material.dart';
 
-class CardFeatureNotifier extends StatefulWidget
-    implements ICardFeatureNotifier {
+class CardFeatureNotifier extends StatefulWidget implements IFeatureNotifier {
   CardFeatureNotifier(
       {super.key,
       required this.featureKey,
@@ -86,6 +86,7 @@ class CardFeatureNotifier extends StatefulWidget
   @override
   bool? showIcon = true;
 
+  ///This key is used to identify the particular feature that was built in the UI. Two features should not have the same feature key to avoid mis-behaviours
   @override
   int featureKey;
 
