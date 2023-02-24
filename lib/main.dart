@@ -62,6 +62,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   featureKey: 1,
                   onClose: () {},
                   onTapCard: () {},
+                  showIcon: true,
+                  // icon: Text("dog"),
                 )),
             const Text(
               'You have pushed the button this many times:',

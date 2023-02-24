@@ -1,3 +1,4 @@
+import 'package:feature_notifier/utils/icon_selector.dart';
 import 'package:feature_notifier/utils/storage.dart';
 import 'package:feature_notifier/widgets/notifiers/card_notifier/interface_card_notifier.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,9 @@ class CardFeatureNotifier extends StatefulWidget
       this.strokeWidth,
       this.titleColor,
       this.titleFontSize,
-      this.hasButton});
+      this.hasButton,
+      this.showIcon,
+      this.buttonBackgroundColor});
 
   @override
   State<CardFeatureNotifier> createState() => _CardFeatureNotifierState();
@@ -116,10 +119,13 @@ class _CardFeatureNotifierState extends State<CardFeatureNotifier> {
                               Row(
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.only(right: 12),
-                                    child: Image.asset(
-                                      "asset/party.png",
-                                      height: 30,
+                                    padding: EdgeInsets.only(
+                                        right: (widget.showIcon ?? false
+                                            ? 12
+                                            : 0)),
+                                    child: selectIcon(
+                                      showIcon: widget.showIcon,
+                                      icon: widget.icon,
                                     ),
                                   ),
                                   SizedBox(
@@ -128,7 +134,8 @@ class _CardFeatureNotifierState extends State<CardFeatureNotifier> {
                                       widget.title,
                                       style: TextStyle(
                                           fontWeight: FontWeight.w700,
-                                          fontSize: widget.titleFontSize ?? 16),
+                                          fontSize: widget.titleFontSize ?? 16,
+                                          color: widget.titleColor),
                                     ),
                                   ),
                                 ],
@@ -146,24 +153,39 @@ class _CardFeatureNotifierState extends State<CardFeatureNotifier> {
                               )
                             ]),
                       ),
-                      Text(widget.description,
-                          style: TextStyle(
-                              fontSize: widget.descriptionFontSize ?? 16)),
+                      Text(
+                        widget.description,
+                        style: TextStyle(
+                            fontSize: widget.descriptionFontSize ?? 16,
+                            color: widget.descriptionColor),
+                      ),
                       Padding(
                         padding: const EdgeInsets.only(top: 12.0),
                         child: widget.hasButton != null &&
                                 widget.hasButton != false
                             ? ElevatedButton(
-                                onPressed: () {},
+                                onPressed: widget.onTapButton,
                                 style: ButtonStyle(
-                                    elevation:
-                                        MaterialStateProperty.all<double>(10),
-                                    backgroundColor:
-                                        MaterialStateProperty.all<Color>(
-                                            Color.fromARGB(255, 43, 93, 45))),
-                                child: Text(widget.buttonText == null
-                                    ? "Explore Feature"
-                                    : widget.buttonText!),
+                                  elevation:
+                                      MaterialStateProperty.all<double>(10),
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color?>(
+                                    widget.buttonBackgroundColor ??
+                                        const Color.fromARGB(255, 43, 93, 45),
+                                  ),
+                                  foregroundColor:
+                                      MaterialStateProperty.all<Color?>(
+                                    widget.buttonTextColor ?? Colors.white,
+                                  ),
+                                ),
+                                child: Text(
+                                  widget.buttonText == null
+                                      ? "Explore Feature"
+                                      : widget.buttonText!,
+                                  style: TextStyle(
+                                    fontSize: widget.buttonTextFontSize,
+                                  ),
+                                ),
                               )
                             : Container(),
                       )
