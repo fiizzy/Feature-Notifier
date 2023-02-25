@@ -34,6 +34,22 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      // do something
+      print("Build Completed");
+      FeatureBottomModalSheetNotifier.featureBottomModalSheetNotifier(context,
+          title: "Modal sheet example",
+          description: "Modal sheet is a good way to display a feature",
+          onClose: () {},
+          featureKey: 2,
+          onTapCard: () {});
+    });
+  }
+
   int _counter = 0;
 
   void _incrementCounter() {
@@ -52,12 +68,6 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            // FeatureBottomModalSheetNotifier(
-            //     featureKey: 2,
-            //     onClose: () {},
-            //     description: "description",
-            //     onTapCard: () {},
-            //     title: "Bottom Modal"),
             Padding(
                 padding: const EdgeInsets.all(20),
                 child: CardFeatureNotifier(
