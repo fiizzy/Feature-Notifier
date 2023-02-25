@@ -2,7 +2,7 @@ import 'package:feature_notifier/utils/icon_selector.dart';
 import 'package:feature_notifier/utils/storage.dart';
 import 'package:flutter/material.dart';
 
-class FeatureBottomModalSheetNotifier {
+class FeatureOverlayModalNotifier {
   static notify(
     BuildContext context, {
     required int featureKey,
@@ -78,7 +78,6 @@ class FeatureBottomModalSheetNotifier {
                               GestureDetector(
                                 child: Icon(Icons.close),
                                 onTap: () {
-                                  Navigator.pop(context);
                                   FeatureNotifierStorage.write(
                                       value: true, id: featureKey);
                                   onClose();
