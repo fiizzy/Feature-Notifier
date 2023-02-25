@@ -4,27 +4,30 @@ import 'package:feature_notifier/utils/storage.dart';
 import 'package:flutter/material.dart';
 
 class FeatureBottomModalSheetNotifier {
-  static featureBottomModalSheetNotifier(BuildContext context,
-      {required featureKey,
-      required onClose,
-      required description,
-      required onTapCard,
-      required title,
-      buttonText,
-      backgroundColor,
-      buttonTextColor,
-      buttonTextFontSize,
-      descriptionColor,
-      descriptionFontSize,
-      icon,
-      onTapButton,
-      strokeColor,
-      strokeWidth,
-      titleColor,
-      titleFontSize,
-      hasButton,
-      showIcon,
-      buttonBackgroundColor}) {
+  static featureBottomModalSheetNotifier(
+    BuildContext context, {
+    required int featureKey,
+    required void Function() onClose,
+    required String description,
+    required void Function() onTapCard,
+    required String title,
+    String? buttonText,
+    Color? backgroundColor,
+    Color? buttonTextColor,
+    double? buttonTextFontSize,
+    Color? descriptionColor,
+    double? descriptionFontSize,
+    Widget? icon,
+    void Function()? onTapButton,
+    Color? strokeColor,
+    double? strokeWidth,
+    Color? titleColor,
+    double? titleFontSize,
+    bool? hasButton,
+    bool? showIcon,
+    Color? buttonBackgroundColor,
+    Widget? image,
+  }) {
     !FeatureNotifierStorage.read(featureKey)
         ? showModalBottomSheet(
             shape: const RoundedRectangleBorder(
@@ -36,9 +39,9 @@ class FeatureBottomModalSheetNotifier {
             builder: (context) {
               return LayoutBuilder(builder: (context, constraint) {
                 return Container(
-                  padding: EdgeInsets.fromLTRB(12, 32, 12, 36),
+                  padding: EdgeInsets.fromLTRB(12, 32, 12, 48),
                   decoration: BoxDecoration(
-                      color: backgroundColor ?? Colors.green[50],
+                      color: backgroundColor ?? Colors.white,
                       border: Border.all(width: 1, color: Colors.green),
                       borderRadius: BorderRadius.all(Radius.circular(40))),
                   child: Column(
@@ -90,6 +93,7 @@ class FeatureBottomModalSheetNotifier {
                             fontSize: descriptionFontSize ?? 16,
                             color: descriptionColor),
                       ),
+                      image ?? Container(),
                       Padding(
                         padding: const EdgeInsets.only(top: 12.0),
                         child: hasButton != null && hasButton != false
@@ -113,9 +117,7 @@ class FeatureBottomModalSheetNotifier {
                                   height: 45,
                                   child: Center(
                                     child: Text(
-                                      buttonText == null
-                                          ? "Explore Feature"
-                                          : buttonText!,
+                                      buttonText ?? "Explore Feature",
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                         textBaseline: TextBaseline.alphabetic,

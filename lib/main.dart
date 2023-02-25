@@ -83,6 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onClose: () {},
                   onTapCard: () {},
                   showIcon: true,
+                  onTapButton: () {},
                   // icon: Text("dog"),
                 )),
             const Text(
