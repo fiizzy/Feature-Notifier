@@ -41,12 +41,15 @@ class _MyHomePageState extends State<MyHomePage> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       // do something
       print("Build Completed");
-      FeatureBottomModalSheetNotifier.featureBottomModalSheetNotifier(context,
-          title: "Modal sheet example",
-          description: "Modal sheet is a good way to display a feature",
-          onClose: () {},
-          featureKey: 2,
-          onTapCard: () {});
+      FeatureBottomModalSheetNotifier.featureBottomModalSheetNotifier(
+        context,
+        title: "Modal sheet example",
+        description: "Modal sheet is a good way to display a feature",
+        onClose: () {},
+        featureKey: 2,
+        onTapCard: () {},
+        hasButton: true,
+      );
     });
   }
 
