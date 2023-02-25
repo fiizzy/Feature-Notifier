@@ -4,7 +4,7 @@ import 'package:feature_notifier/utils/storage.dart';
 import 'package:flutter/material.dart';
 
 class FeatureBottomModalSheetNotifier {
-  static featureBottomModalSheetNotifier(
+  static notify(
     BuildContext context, {
     required int featureKey,
     required void Function() onClose,
