@@ -1,4 +1,5 @@
 import 'package:feature_notifier/feature_notifier.dart';
+import 'package:feature_notifier/widgets/alert_notifier/alert_notifier.dart';
 import 'package:feature_notifier/widgets/bottom_modal_sheet_notifier/bottom_modal_sheet_notifier.dart';
 import 'package:feature_notifier/widgets/card_notifier/card_notifier.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       // do something
       print("Build Completed");
-      FeatureBottomModalSheetNotifier.notify(
+      FeatureAlertNotifier.notify(
         context,
         title: "Modal sheet example",
         description: "Modal sheet is a good way to display a feature",

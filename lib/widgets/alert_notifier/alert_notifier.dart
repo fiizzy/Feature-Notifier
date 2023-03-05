@@ -8,7 +8,6 @@ class FeatureAlertNotifier {
     required int featureKey,
     required void Function() onClose,
     required String description,
-    required void Function() onTapCard,
     required String title,
     String? buttonText,
     Color? backgroundColor,
