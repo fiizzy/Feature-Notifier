@@ -148,7 +148,7 @@ class _CardFeatureNotifierState extends State<CardFeatureNotifier> {
                                   onTap: () {
                                     setState(() {
                                       FeatureNotifierStorage.write(
-                                          value: true, id: 1);
+                                          value: true, id: widget.featureKey);
                                     });
                                     widget.onClose();
                                     print("close Feature");
