@@ -3,7 +3,7 @@ import 'package:feature_notifier/utils/storage.dart';
 import 'package:flutter/material.dart';
 
 class FeatureAlertNotifier {
-  static notify(
+  static Future<Widget?> notify(
     BuildContext context, {
     required int featureKey,
     required void Function() onClose,
@@ -25,7 +25,7 @@ class FeatureAlertNotifier {
     bool? showIcon,
     Color? buttonBackgroundColor,
     Widget? image,
-  }) {
+  }) async {
     !FeatureNotifierStorage.read(featureKey)
         ? showDialog(
             context: context,

@@ -1,1 +1,3 @@
-class FeatureNotifier {}
+class FeatureNotifier {
+  static customNotifier<T>() {}
+}
