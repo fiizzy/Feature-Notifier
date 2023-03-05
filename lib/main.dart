@@ -1,4 +1,5 @@
 import 'package:feature_notifier/feature_notifier.dart';
+import 'package:feature_notifier/widgets/bar_notification/bar_notifier.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
@@ -81,6 +82,18 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTapCard: () {},
                   showIcon: true,
                   onTapButton: () {},
+                  // icon: Text("dog"),
+                )),
+            Padding(
+                padding: const EdgeInsets.all(20),
+                child: FeatureBarNotifier(
+                  title:
+                      "Testing this out You have pushed the button this many times:",
+
+                  featureKey: 2,
+                  onClose: () {},
+                  onTapCard: () {},
+                  showIcon: true,
                   // icon: Text("dog"),
                 )),
             const Text(
