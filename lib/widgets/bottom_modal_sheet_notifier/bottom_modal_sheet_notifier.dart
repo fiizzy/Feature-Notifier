@@ -8,7 +8,6 @@ class FeatureBottomModalSheetNotifier {
     required int featureKey,
     required void Function() onClose,
     required String description,
-    required void Function() onTapCard,
     required String title,
     String? buttonText,
     Color? backgroundColor,
@@ -38,11 +37,11 @@ class FeatureBottomModalSheetNotifier {
             builder: (context) {
               return LayoutBuilder(builder: (context, constraint) {
                 return Container(
-                  padding: EdgeInsets.fromLTRB(12, 32, 12, 48),
+                  padding: const EdgeInsets.fromLTRB(12, 32, 12, 48),
                   decoration: BoxDecoration(
                       color: backgroundColor ?? Colors.white,
-                      border: Border.all(width: 1, color: Colors.green),
-                      borderRadius: BorderRadius.all(Radius.circular(40))),
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(40))),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
