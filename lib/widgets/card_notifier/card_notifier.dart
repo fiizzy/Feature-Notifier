@@ -106,7 +106,9 @@ class _CardFeatureNotifierState extends State<CardFeatureNotifier> {
                   padding: EdgeInsets.all(12),
                   decoration: BoxDecoration(
                       color: Colors.green[50],
-                      border: Border.all(width: 1, color: Colors.green),
+                      border: Border.all(
+                          width: widget.strokeWidth ?? 1,
+                          color: widget.strokeColor ?? Colors.green),
                       borderRadius: BorderRadius.all(Radius.circular(5))),
                   child: Center(
                     child: Column(
