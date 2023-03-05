@@ -1,5 +1,4 @@
 import 'package:feature_notifier/feature_notifier.dart';
-import 'package:feature_notifier/widgets/bar_notification/bar_notifier.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
