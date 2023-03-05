@@ -3,8 +3,8 @@ import 'package:feature_notifier/utils/icon_selector.dart';
 import 'package:feature_notifier/utils/storage.dart';
 import 'package:flutter/material.dart';
 
-class CardFeatureNotifier extends StatefulWidget implements IFeatureNotifier {
-  CardFeatureNotifier(
+class FeatureCardNotifier extends StatefulWidget implements IFeatureNotifier {
+  FeatureCardNotifier(
       {super.key,
       required this.featureKey,
       required this.onClose,
@@ -28,7 +28,7 @@ class CardFeatureNotifier extends StatefulWidget implements IFeatureNotifier {
       this.buttonBackgroundColor});
 
   @override
-  State<CardFeatureNotifier> createState() => _CardFeatureNotifierState();
+  State<FeatureCardNotifier> createState() => _FeatureCardNotifierState();
 
   @override
   Color? backgroundColor;
@@ -93,7 +93,7 @@ class CardFeatureNotifier extends StatefulWidget implements IFeatureNotifier {
   bool? hasButton = false;
 }
 
-class _CardFeatureNotifierState extends State<CardFeatureNotifier> {
+class _FeatureCardNotifierState extends State<FeatureCardNotifier> {
   @override
   Widget build(BuildContext context) {
     print(

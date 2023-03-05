@@ -70,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Padding(
                 padding: const EdgeInsets.all(20),
-                child: CardFeatureNotifier(
+                child: FeatureCardNotifier(
                   title: "Testing this out",
                   hasButton: true,
                   // buttonText: 'Just a Button',
