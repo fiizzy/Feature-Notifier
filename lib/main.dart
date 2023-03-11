@@ -39,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       // do something
       print("Build Completed");
-      FeatureAlertNotifier.notify(
+      FeatureBottomModalSheetNotifier.notify(
         context,
         title: "Modal sheet example",
         description: "Modal sheet is a good way to display a feature",

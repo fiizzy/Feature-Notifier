@@ -3,7 +3,20 @@ import 'package:feature_notifier/utils/storage.dart';
 import 'package:flutter/material.dart';
 
 class FeatureBottomModalSheetNotifier {
-  static notify(
+  ///This method returns a bottom modal sheet that allows you notify users of your new
+  ///features. A common use case would be to call this method after your screen has completed it built, and to do this, you need to call the `WidgetsBinding.instance.addPostFrameCallback()`
+  ///inside the init state of your stateful widget. Like so
+  ///
+  /// ```dart
+  /// void initState() {
+  ///    WidgetsBinding.instance.addPostFrameCallback((_) {
+  ///       FeatureBottomModalSheetNotifier.notify();
+  ///   }
+  /// }
+  /// ```
+  /// To persist the open/closed state of the notifier, checkout `FeatureNotifier.isClosed()`
+  /// method.
+  static Future<Widget?> notify(
     BuildContext context, {
     required int featureKey,
     required void Function() onClose,
@@ -25,7 +38,7 @@ class FeatureBottomModalSheetNotifier {
     bool? showIcon,
     Color? buttonBackgroundColor,
     Widget? image,
-  }) {
+  }) async {
     !FeatureNotifierStorage.read(featureKey)
         ? showModalBottomSheet(
             shape: const RoundedRectangleBorder(
