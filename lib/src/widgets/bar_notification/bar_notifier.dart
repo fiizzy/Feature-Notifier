@@ -1,5 +1,5 @@
-import 'package:feature_notifier/utils/icon_selector.dart';
-import 'package:feature_notifier/utils/storage.dart';
+import 'package:feature_notifier/feature_notifier.dart';
+import 'package:feature_notifier/src/utils/icon_selector.dart';
 import 'package:flutter/material.dart';
 
 ///This widget returns a highly customizable bar that allows you notify users of your new feature.

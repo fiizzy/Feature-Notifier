@@ -1,9 +1,9 @@
-import 'package:feature_notifier/utils/icon_selector.dart';
-import 'package:feature_notifier/utils/storage.dart';
+import 'package:feature_notifier/feature_notifier.dart';
+import 'package:feature_notifier/src/utils/icon_selector.dart';
 import 'package:flutter/material.dart';
 
-class FeatureAlertNotifier {
-  ///This method returns an alert dialog that allows you notify users of your new
+class FeatureBottomModalSheetNotifier {
+  ///This method returns a bottom modal sheet that allows you notify users of your new
   ///features.
   ///
   ///A common use case would be to call this method after your screen has completed it built, and to do this, you need to call the
@@ -18,6 +18,7 @@ class FeatureAlertNotifier {
   /// ```
   /// To persist the open/closed state of the notifier, checkout `FeatureNotifier.isClosed()`
   /// method.
+
   static Future<Widget?> notify(
     BuildContext context, {
     required int featureKey,
@@ -42,52 +43,65 @@ class FeatureAlertNotifier {
     Widget? image,
   }) async {
     !FeatureNotifierStorage.read(featureKey)
-        ? showDialog(
+        ? showModalBottomSheet(
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(
+                top: Radius.circular(40),
+              ),
+            ),
             context: context,
             builder: (context) {
-              return AlertDialog(
-                  title: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.only(
-                                  right: (showIcon ?? false ? 12 : 0)),
-                              child: selectIcon(
-                                showIcon: showIcon,
-                                icon: icon,
-                              ),
-                            ),
-                            SizedBox(
-                              // width: MediaQuery.of(context).size.width *
-                              //     .7,
-                              child: Text(
-                                title,
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: titleFontSize ?? 16,
-                                    color: titleColor),
-                              ),
-                            ),
-                          ],
-                        ),
-                        GestureDetector(
-                          child: Icon(Icons.close),
-                          onTap: () {
-                            Navigator.pop(context);
-                            FeatureNotifierStorage.write(
-                                value: true, id: featureKey);
-                            onClose();
-                            print("close Feature");
-                          },
-                        )
-                      ]),
-                  content: Column(
+              return LayoutBuilder(builder: (context, constraint) {
+                return Container(
+                  padding: const EdgeInsets.fromLTRB(12, 32, 12, 48),
+                  decoration: BoxDecoration(
+                      color: backgroundColor ?? Colors.white,
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(40))),
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: [
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 12.0),
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.only(
+                                        right: (showIcon ?? false ? 12 : 0)),
+                                    child: selectIcon(
+                                      showIcon: showIcon,
+                                      icon: icon,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: constraint.maxWidth * .7,
+                                    child: Text(
+                                      title,
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w700,
+                                          fontSize: titleFontSize ?? 16,
+                                          color: titleColor),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              GestureDetector(
+                                child: Icon(Icons.close),
+                                onTap: () {
+                                  Navigator.pop(context);
+                                  FeatureNotifierStorage.write(
+                                      value: true, id: featureKey);
+                                  onClose();
+                                  print("close Feature");
+                                },
+                              )
+                            ]),
+                      ),
                       Text(
                         description,
                         style: TextStyle(
@@ -114,7 +128,7 @@ class FeatureAlertNotifier {
                                   ),
                                 ),
                                 child: SizedBox(
-                                  // width: MediaQuery.of(context).size.width,
+                                  width: constraint.maxWidth,
                                   height: 45,
                                   child: Center(
                                     child: Text(
@@ -131,7 +145,9 @@ class FeatureAlertNotifier {
                             : Container(),
                       )
                     ],
-                  ));
+                  ),
+                );
+              });
             })
         : null;
   }

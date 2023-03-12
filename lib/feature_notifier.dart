@@ -1,2 +1,2 @@
-export 'utils/utils.export.dart';
-export 'widgets/widget.export.dart';
+export 'src/utils/utils.export.dart';
+export 'src/widgets/widget.export.dart';
