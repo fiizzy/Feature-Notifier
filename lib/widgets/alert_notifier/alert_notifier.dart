@@ -3,6 +3,21 @@ import 'package:feature_notifier/utils/storage.dart';
 import 'package:flutter/material.dart';
 
 class FeatureAlertNotifier {
+  ///This method returns an alert dialog that allows you notify users of your new
+  ///features.
+  ///
+  ///A common use case would be to call this method after your screen has completed it built, and to do this, you need to call the
+  ///`WidgetsBinding.instance.addPostFrameCallback()`
+  ///inside the init state of your stateful widget. Like so
+  /// ```dart
+  /// void initState() {
+  ///    WidgetsBinding.instance.addPostFrameCallback((_) {
+  ///       FeatureBottomModalSheetNotifier.notify();
+  ///   }
+  /// }
+  /// ```
+  /// To persist the open/closed state of the notifier, checkout `FeatureNotifier.isClosed()`
+  /// method.
   static Future<Widget?> notify(
     BuildContext context, {
     required int featureKey,

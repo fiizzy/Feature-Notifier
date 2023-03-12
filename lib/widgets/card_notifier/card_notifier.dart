@@ -3,7 +3,12 @@ import 'package:feature_notifier/utils/icon_selector.dart';
 import 'package:feature_notifier/utils/storage.dart';
 import 'package:flutter/material.dart';
 
-///This widget returns a highly customizable card that allows you notify users of your new feature. When a user closes this Notifier, the closed state is persisted and is never displayed again. To reset the closed state, call the `FeatureNotifier.persist()` method to persist the open state, and refresh or update your state after persisting to display and re-insert the feature notifier into the widget tree.
+///This widget returns a highly customizable card that allows you notify users of your new feature.
+///
+///When a user closes this Notifier, the closed state is persisted and is never displayed again.
+///To reset the closed state, call the `FeatureNotifier.persist()` method to persist the open
+///state, and refresh or update your state after persisting to display and re-insert the feature
+/// notifier into the widget tree.
 class FeatureCardNotifier extends StatefulWidget implements IFeatureNotifier {
   FeatureCardNotifier(
       {super.key,
