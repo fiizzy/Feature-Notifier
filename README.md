@@ -46,13 +46,87 @@ There are currently 4 unique and highly customizable feature notifiers in this p
 
 #### 1. Bar Notifier
 
+<img src = "screenshots/bar-notifier.png" height="600" >
+
+Returns a simple and customizable horizontal bar.
+
 ```dart
 FeatureBarNotifier(
-  title: "Testing this out You have pushed the button this many times:",
+  title: "We just released a new feature!",
   featureKey: 2,
   onClose: () {},
   onTapCard: () {},
   showIcon: true,
-  // icon: Text("dog"),
 )
+```
+
+#### 2. Card Notifier
+
+<img src = "screenshots/card-notifier-1.png" height="600" >
+
+Returns a simple and customizable Card
+
+```dart
+FeatureCardNotifier(
+  title: "We just released a new feature!",
+  featureKey: 2,
+  onClose: () {},
+  onTapCard: () {},
+  showIcon: true,
+  //use the hasButton parameter to display a button
+  hasButton:true,
+)
+```
+
+#### 3. Alert Dialog Notifier
+
+<img src = "screenshots/alert-dialog.png" height="600" >
+
+Returns a simple and customizable alert dialog.
+
+```dart
+FeatureAlertNotifier.notify(
+  context,
+  title: "Alert Dialog",
+  description: "Alert dialog is a good way to display a feature",
+  onClose: () {},
+  featureKey: 3,
+  hasButton: true,
+);
+```
+
+A common use-case for the alert notifier to be shown is when a screen has completed it build and marked has built. Hence, you will need to access the `WidgetsBinding.instance.addPostFrameCallback()` callback method within the `initState` of your stateful widget to evoke the `notify()` method of the FeatureAlertNotifier.
+
+```dart
+void initState() {
+  super.initState();
+  WidgetsBinding.instance.addPostFrameCallback((_) {
+    print("Build Completed");
+    FeatureAlertNotifier.notify(
+      context,
+      title: "Alert Notifier,
+      description: "Modal sheet is a good way to display a feature",
+      onClose: () {},
+      featureKey: 3,
+      hasButton: true,
+    );
+  });
+}
+
+```
+
+#### 4. Bottom Modal Sheet Notifier
+
+<img src = "screenshots/bottom-modal-sheet-1.png" height="600" >
+
+Returns a simple and customizable horizontal bar.
+
+```dart
+FeatureBottomModalSheetNotifier.notify(
+  context,
+  title: "Modal sheet example",
+  description: "Modal sheet is a good way to display a feature",
+  onClose: () {},
+  featureKey: 3,
+  hasButton: true,
 ```
