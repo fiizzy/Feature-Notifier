@@ -10,10 +10,9 @@ Notify your users of new features within your app after an update.
 
 #### Example Gallery
 
-<img src = "screenshots/bar-notifier.png" height="600" >
-<img src = "screenshots/card-notifier-1.png" height="600" >
-<img src = "screenshots/alert-dialog.png" height="600" >
-<img src = "screenshots/bottom-modal-sheet-2.png" height="600" >
+| <img src = "screenshots/bar-notifier.png" height="600" >         | <img src = "screenshots/card-notifier-1.png" height="600" > |
+| ---------------------------------------------------------------- | ----------------------------------------------------------- |
+| <img src = "screenshots/bottom-modal-sheet-2.png" height="600" > | <img src = "screenshots/alert-dialog.png" height="600" >    |
 
 ##### Usage
 
