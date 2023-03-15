@@ -45,7 +45,7 @@ There are four(4) unique and highly customizable feature notifiers available in 
 
 #### 1. Bar Notifier
 
-<img src = "screenshots/bar-notifier.png" height="600" >
+<img src = "https://github.com/fiizzy/feature-notifier/blob/main/screenshots/bar-notifier.png?raw=true" height="600" >
 
 Returns a simple and customizable horizontal bar.
 
@@ -61,7 +61,7 @@ FeatureBarNotifier(
 
 #### 2. Card Notifier
 
-<img src = "screenshots/card-notifier-1.png" height="600" >
+<img src = "https://github.com/fiizzy/feature-notifier/blob/main/screenshots/card-notifier-1.png?raw=true" height="600" >
 
 Returns a simple and customizable Card
 
@@ -80,7 +80,7 @@ FeatureCardNotifier(
 
 #### 3. Alert Dialog Notifier
 
-<img src = "screenshots/alert-dialog.png" height="600" >
+<img src = "https://github.com/fiizzy/feature-notifier/blob/main/screenshots/alert-dialog.png?raw=true" height="600" >
 
 Returns a simple and customizable alert dialog.
 
@@ -117,7 +117,7 @@ void initState() {
 
 #### 4. Bottom Modal Sheet Notifier
 
-<img src = "screenshots/bottom-modal-sheet-1.png" height="600" >
+<img src = "https://github.com/fiizzy/feature-notifier/blob/main/screenshots/bottom-modal-sheet-1.png?raw=true" height="600" >
 
 Returns a simple and customizable bottom modal sheet.
 
