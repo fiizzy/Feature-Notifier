@@ -133,6 +133,6 @@ class FeatureAlertNotifier {
                     ],
                   ));
             })
-        : null;
+        : Container();
   }
 }

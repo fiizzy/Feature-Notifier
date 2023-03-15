@@ -19,7 +19,7 @@ class FeatureBottomModalSheetNotifier {
   /// To persist the open/closed state of the notifier, checkout `FeatureNotifier.isClosed()`
   /// method.
 
-  static Future<Widget?> notify(
+  static Future notify(
     BuildContext context, {
     required int featureKey,
     required void Function() onClose,
@@ -149,6 +149,6 @@ class FeatureBottomModalSheetNotifier {
                 );
               });
             })
-        : null;
+        : Container();
   }
 }
