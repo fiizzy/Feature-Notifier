@@ -42,7 +42,7 @@ void main() async {
 
 ## Feature Notifiers
 
-There are currently 4 unique and highly customizable feature notifiers in this package with slightly different implementations.
+There are four(4) unique and highly customizable feature notifiers available in this package with slightly different implementations.
 
 #### 1. Bar Notifier
 
@@ -69,6 +69,7 @@ Returns a simple and customizable Card
 ```dart
 FeatureCardNotifier(
   title: "We just released a new feature!",
+  description: "Checkout the nwq feature that we just released and make."
   featureKey: 2,
   onClose: () {},
   onTapCard: () {},
@@ -87,15 +88,15 @@ Returns a simple and customizable alert dialog.
 ```dart
 FeatureAlertNotifier.notify(
   context,
-  title: "Alert Dialog",
-  description: "Alert dialog is a good way to display a feature",
+  title: "We just released a new feature!",
+  description: "Checkout the nwq feature that we just released and make."
   onClose: () {},
   featureKey: 3,
   hasButton: true,
 );
 ```
 
-A common use-case for the alert notifier to be shown is when a screen has completed it build and marked has built. Hence, you will need to access the `WidgetsBinding.instance.addPostFrameCallback()` callback method within the `initState` of your stateful widget to evoke the `notify()` method of the FeatureAlertNotifier.
+A common use-case for the alert dialog notifier to be shown is when a screen has completed its build and marked has built. Hence, you will need to access the `WidgetsBinding.instance.addPostFrameCallback()` callback method within the `initState()` of your stateful widget to evoke the `notify()` method on the FeatureAlertNotifier.
 
 ```dart
 void initState() {
@@ -104,8 +105,8 @@ void initState() {
     print("Build Completed");
     FeatureAlertNotifier.notify(
       context,
-      title: "Alert Notifier",
-      description: "Modal sheet is a good way to display a feature",
+      title: "We just released a new feature!",
+      description: "Checkout the nwq feature that we just released and make."
       onClose: () {},
       featureKey: 3,
       hasButton: true,
@@ -124,15 +125,15 @@ Returns a simple and customizable bottom modal sheet.
 ```dart
 FeatureAlertNotifier.notify(
   context,
-  title: "Alert Dialog",
-  description: "Alert dialog is a good way to display a feature",
+  title: "We just released a new feature!",
+  description: "Checkout the nwq feature that we just released and make."
   onClose: () {},
   featureKey: 3,
   hasButton: true,
 );
 ```
 
-Just as with the Alert dialog Notifier, common use-case for the alert notifier to be shown is when a screen has completed it build and marked has built. Hence, you will need to access the `WidgetsBinding.instance.addPostFrameCallback()` callback method within the `initState` of your stateful widget to evoke the `notify()` method of the FeatureAlertNotifier.
+Just as with the alert dialog notifier, common use-case for the alert notifier to be shown is when a screen has completed it build and marked has built. Hence, you will need to access the `WidgetsBinding.instance.addPostFrameCallback()` callback method within the `initState()` of your stateful widget to evoke the `notify()` method of the FeatureAlertNotifier.
 
 ```dart
 void initState() {
@@ -154,7 +155,7 @@ void initState() {
 
 ## Creating Custom Notifier
 
-The feature notifier package offers out of the box methods that allows to create your custom notifier UI and manipu` state.
+The feature notifier package offers out of the box methods that allow you to create your custom notifications and manipulate state.
 
 The following methods are handy for creating a custom notifier UI along with its persisting functionality.
 
@@ -163,20 +164,18 @@ The following methods are handy for creating a custom notifier UI along with its
   To update the state and remove the currently displayed widget from the widget tree, you need to use the `FeatureNotifier.isClosed()` method which returns a bool, to read the value of your currently displayed or closed feature notifier, and show or hide your custom widget accordingly.
 - ##### `FeatureNotifier.isClosed()`
 
-  Whether a particular feature notifier (custom or not) has been closed or not.
+  Checks whether a particular feature notifier (custom or not) has been closed.
 
-  This is helpful when you want to update the state of your UI to show or hide a custom feature notifier that is opened (`isClosed() is false`) or closed (`isClosed() is true`) respectively.
+  This is helpful when you want to update the state of your UI to show or hide a custom feature notifier that is opened (`isClosed() is false`) or has been closed (`isClosed() is true`) respectively.
 
 - ##### `FeatureNotifier.persist()`
-  Keeps a particular feature notifier alive after it has been previously closed by passing in the `featureKey`. Call this method when you want to reset the `isClosed()` value to false. This is useful when you want to choose to display a feature notifier after a new login,
-  which means that this method has to be called when the user logs out so that it can be persisted.
+  Keeps a particular feature notifier alive after it has been previously closed. It does this by accepting the `featureKey` as a parameter so that the particular feature can be uniquely identified. Call this method when you want to reset the `isClosed()` value to `false`. This is useful when you want to choose to display a feature notifier after a new login, which means that this method has to be called when the user logs out so that it can be persisted.
 - ##### `FeatureNotifier.persistAll()`
-  Keeps all feature notifiers alive after it has been previously closed. Call this method when you want to reset the `isClosed()` value to false. This is useful when you want to choose to display a feature notifier after a new login, which means that this method has to be called when the user logs out so that it can be persisted. To persist a single feature notifier, use the `FeatureNotifier.persist()`
-  and pass in the `featureKey` to identify the feature to be persisted.
+  Keeps all feature notifiers alive after they have been previously closed.. Call this method when you want to reset the `isClosed()` value to `false` for all the feature notifiers. This is useful when you want to choose to display all feature notifiers after a new login, which means that this method has to be called when the user logs out so that all values can be persisted/reset. To persist a single feature notifier, use the `FeatureNotifier.persist()` and pass in the `featureKey` to identify the feature to be persisted.
 
 ### Parameters
 
-Here is a list of parameters that you can use to customize your feature notifier class.
+Here is a list of parameters that you can use to customize your feature notifier classes and methods.
 
 ` int featureKey;` /// to uniquely identify a feature
 ` String title;`
@@ -198,3 +197,15 @@ Here is a list of parameters that you can use to customize your feature notifier
 ` double? strokeWidth;`
 ` void Function() onTapCard;`
 ` bool? hasButton;`
+
+## Contribution
+
+Of course the project is open source, and you can contribute to it [repository link](https://github.com/fiizzy/feature-notifier)
+
+- If you **found a bug**, open an issue.
+- If you **have a feature request**, open an issue.
+- If you **want to contribute**, submit a pull request.
+
+##### Love to meet you
+
+[Connect with me personally](https://linktr.ee/fisayo.obilaja)

@@ -26,22 +26,23 @@ class FeatureNotifier {
     return FeatureNotifierStorage.read(featureKey);
   }
 
-  ///Keeps a particular feature notifier alive after it has been previously closed by
-  ///passing in the `featureKey`.
-  ///
-  /// Call this method when you want to reset the `isClosed()` value to false. This is useful
-  /// when you want to choose to display a feature notifier after a new login,
-  /// which means that this method has to be called when the user logs out so that it can be persisted.
+  ///Keeps a particular feature notifier alive after it has been previously closed.
+  ///It does this by accepting  the `featureKey` as a parameter so that the
+  ///particular feature can be uniquely identified. Call this method when you want
+  /// to reset the `isClosed()` value to `false`. This is useful when you want to
+  /// choose to display a feature notifier after a new login, which means that this
+  ///  method has to be called when the user logs out so that it can be persisted.
   static void persist({required int featureKey}) {
     FeatureNotifierStorage.erase(featureKey);
   }
 
-  ///Keeps all feature notifiers alive after it has been previously closed.
+  ///Keeps all feature notifiers alive after they have been previously closed.
   ///
-  ///Call this method when you want to reset the `isClosed()` value to false.
-  ///This is useful when you want to choose to display a feature notifier after a new login,
-  ///which means that this method has to be called when the user logs out so that it can be persisted.
-  ///To persist a single feature notifier, use the `FeatureNotifier.persist()`
+  ///Call this method when you want to reset the `isClosed()` value to `false`
+  ///for all the feature notifiers. This is useful when you want to choose to
+  ///display all feature notifiers after a new login, which means that this method
+  /// has to be called when the user logs out so that all values can be persisted/reset.
+  ///  To persist a single feature notifier, use the `FeatureNotifier.persist()`
   ///and pass in the `featureKey` to identify the feature to be persisted.
   static void persistAll() {
     FeatureNotifierStorage.eraseAll();
