@@ -10,9 +10,9 @@ Notify your users of new features within your app after an update.
 
 #### Example Gallery
 
-| <img src = "screenshots/bar-notifier.png" height="600" >         | <img src = "screenshots/card-notifier-1.png" height="600" > |
-| ---------------------------------------------------------------- | ----------------------------------------------------------- |
-| <img src = "screenshots/bottom-modal-sheet-2.png" height="600" > | <img src = "screenshots/alert-dialog.png" height="600" >    |
+| <img src = "https://github.com/fiizzy/feature-notifier/blob/main/screenshots/bar-notifier.png?raw=true" height="600" >         | <img src = "https://github.com/fiizzy/feature-notifier/blob/main/screenshots/card-notifier-1.png?raw=true" height="600" > |
+| ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------- |
+| <img src = "https://github.com/fiizzy/feature-notifier/blob/main/screenshots/bottom-modal-sheet-2.png?raw=true" height="600" > | <img src = "https://github.com/fiizzy/feature-notifier/blob/main/screenshots/alert-dialog.png?raw=true" height="600" >    |
 
 ##### Usage
 
@@ -122,7 +122,7 @@ void initState() {
 Returns a simple and customizable bottom modal sheet.
 
 ```dart
-FeatureAlertNotifier.notify(
+FeatureBottomModalSheetNotifier.notify(
   context,
   title: "We just released a new feature!",
   description: "Checkout the nwq feature that we just released and make."
@@ -139,7 +139,7 @@ void initState() {
   super.initState();
   WidgetsBinding.instance.addPostFrameCallback((_) {
     print("Build Completed");
-    FeatureAlertNotifier.notify(
+    FeatureBottomModalSheetNotifier.notify(
       context,
       title: "Alert Notifier",
       description: "Modal sheet is a good way to display a feature",
