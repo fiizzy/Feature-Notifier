@@ -1,6 +1,12 @@
 import 'package:feature_notifier/src/utils/storage.dart';
+import 'package:get_storage/get_storage.dart';
 
 class FeatureNotifier {
+  ///Start the persisting of all feature notifiers. It is important to `await` this method or side effects will occur.
+  static Future<void> init() async {
+    await GetStorage.init();
+  }
+
   ///Closes your custom Feature Notifier widget.
   ///
   ///To update the state and remove the currently displayed widget from the
