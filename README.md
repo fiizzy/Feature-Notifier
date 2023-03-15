@@ -176,26 +176,28 @@ The following methods are handy for creating a custom notifier UI along with its
 
 Here is a list of parameters that you can use to customize your feature notifier classes and methods.
 
-` int featureKey;` /// to uniquely identify a feature
-` String title;`
-` Color? titleColor;`
-` double? titleFontSize;`
-` String description;`
-` Color? descriptionColor;`
-` double? descriptionFontSize;`
-` String? buttonText;`
-` Color? buttonTextColor;`
-` double? buttonTextFontSize;`
-` Color? buttonBackgroundColor;`
-` Widget? icon;`
-` bool? showIcon;`
-` void Function() onClose;`
-` void Function()? onTapButton;`
-` Color? backgroundColor;`
-` Color? strokeColor;`
-` double? strokeWidth;`
-` void Function() onTapCard;`
-` bool? hasButton;`
+```dart
+ int featureKey; /// to uniquely identify a feature
+ String title;
+ Color? titleColor;
+ double? titleFontSize;
+ String description;
+ Color? descriptionColor;
+ double? descriptionFontSize;
+ String? buttonText;
+ Color? buttonTextColor;
+ double? buttonTextFontSize;
+ Color? buttonBackgroundColor;
+ Widget? icon;
+ bool? showIcon;
+ void Function() onClose;
+ void Function()? onTapButton;
+ Color? backgroundColor;
+Color? strokeColor;
+ double? strokeWidth;
+ void Function() onTapCard;
+ bool? hasButton;
+```
 
 ## Contribution
 
