@@ -195,7 +195,7 @@ Here is a list of parameters that you can use to customize your feature notifier
  Color? backgroundColor;
 Color? strokeColor;
  double? strokeWidth;
- void Function() onTapCard;
+ void Function() onTapCard; /// evoked when the feature notifier card is tapped
  bool? hasButton;
 ```
 

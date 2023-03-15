@@ -49,8 +49,6 @@ class FeatureBarNotifier extends StatefulWidget {
 class _CardFeatureNotifierState extends State<FeatureBarNotifier> {
   @override
   Widget build(BuildContext context) {
-    print(
-        "Last save value is ${FeatureNotifierStorage.read(widget.featureKey)}");
     return !FeatureNotifierStorage.read(widget.featureKey)
         ? LayoutBuilder(builder: (context, constraint) {
             return GestureDetector(
@@ -92,7 +90,6 @@ class _CardFeatureNotifierState extends State<FeatureBarNotifier> {
                                     value: true, id: widget.featureKey);
                               });
                               widget.onClose();
-                              print("close Feature");
                             },
                           )
                         ]),

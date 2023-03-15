@@ -1,3 +1,7 @@
+## 1.0.4 - 15/03/2023
+
+- Improved documentation
+
 ## 1.0.3 - 15/03/2023
 
 - Improved documentation

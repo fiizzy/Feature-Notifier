@@ -97,7 +97,6 @@ class FeatureBottomModalSheetNotifier {
                                   FeatureNotifierStorage.write(
                                       value: true, id: featureKey);
                                   onClose();
-                                  print("close Feature");
                                 },
                               )
                             ]),

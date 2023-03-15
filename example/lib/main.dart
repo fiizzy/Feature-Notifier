@@ -8,8 +8,6 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -36,20 +34,19 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      // do something
-      print("Build Completed");
+      debugPrint("Build Completed");
       FeatureBottomModalSheetNotifier.notify(
         context,
         title: "Modal sheet example",
         description: "Modal sheet is a good way to display a feature",
-        onClose: () {},
+        onClose: () {
+          debugPrint("The modal sheet was closed");
+        },
         featureKey: 3,
         hasButton: true,
       );
     });
   }
-
-  int _counter = 0;
 
   void _reset() {
     setState(() {
@@ -72,7 +69,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: FeatureCardNotifier(
                   title: "Testing this out",
                   hasButton: true,
-                  // buttonText: 'Just a Button',
                   description:
                       'You can now show items without inviting friends!',
                   featureKey: 1,
@@ -80,7 +76,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTapCard: () {},
                   showIcon: true,
                   onTapButton: () {},
-                  // icon: Text("dog"),
                 )),
             Padding(
                 padding: const EdgeInsets.all(20),
@@ -94,19 +89,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   showIcon: true,
                   // icon: Text("dog"),
                 )),
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _reset,
-        tooltip: 'Increment',
+        tooltip: 'Persist all features',
         child: const Icon(Icons.clear),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
