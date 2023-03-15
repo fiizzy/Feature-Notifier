@@ -1,7 +1,7 @@
 name: feature_notifier
 description: Notify users of new features within your app after an update
 homepage: "https://github.com/fiizzy/feature-noitifer"
-version: 1.0.2
+version: 1.0.3
 environment:
   sdk: ">=2.18.6 <3.0.0"
 dependencies:
@@ -9,6 +9,7 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   get_storage: ^2.0.3
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -1,3 +1,8 @@
+## 1.0.3 - 15/03/2023
+
+- Improved documentation
+- Add example code
+
 ## 1.0.2 - 15/03/2023
 
 Improved documentation
