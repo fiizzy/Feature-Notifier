@@ -33,19 +33,19 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      debugPrint("Build Completed");
-      FeatureBottomModalSheetNotifier.notify(
-        context,
-        title: "Modal sheet example",
-        description: "Modal sheet is a good way to display a feature",
-        onClose: () {
-          debugPrint("The modal sheet was closed");
-        },
-        featureKey: 3,
-        hasButton: true,
-      );
-    });
+    // WidgetsBinding.instance.addPostFrameCallback((_) {
+    //   debugPrint("Build Completed");
+    //   FeatureBottomModalSheetNotifier.notify(
+    //     context,
+    //     title: "Modal sheet example",
+    //     description: "Modal sheet is a good way to display a feature",
+    //     onClose: () {
+    //       debugPrint("The modal sheet was closed");
+    //     },
+    //     featureKey: 3,
+    //     hasButton: true,
+    //   );
+    // });
   }
 
   void _reset() {
