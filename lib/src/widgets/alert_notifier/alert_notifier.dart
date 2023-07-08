@@ -32,8 +32,6 @@ class FeatureAlertNotifier {
     double? descriptionFontSize,
     Widget? icon,
     void Function()? onTapButton,
-    Color? strokeColor,
-    double? strokeWidth,
     Color? titleColor,
     double? titleFontSize,
     bool? hasButton,
@@ -46,6 +44,7 @@ class FeatureAlertNotifier {
             context: context,
             builder: (context) {
               return AlertDialog(
+                  backgroundColor: backgroundColor,
                   title: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
