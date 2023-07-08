@@ -109,7 +109,7 @@ class _FeatureCardNotifierState extends State<FeatureCardNotifier> {
               child: Container(
                   padding: EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                      color: Colors.green[50],
+                      color: widget.backgroundColor ?? Colors.green[50],
                       border: Border.all(
                           width: widget.strokeWidth ?? 1,
                           color: widget.strokeColor ?? Colors.green),

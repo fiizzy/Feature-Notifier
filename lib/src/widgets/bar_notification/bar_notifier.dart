@@ -26,7 +26,7 @@ class FeatureBarNotifier extends StatefulWidget {
       this.fontWeight});
 
   @override
-  State<FeatureBarNotifier> createState() => _CardFeatureNotifierState();
+  State<FeatureBarNotifier> createState() => _FeatureBarNotifierState();
 
   Color? backgroundColor;
   Widget? icon;
@@ -46,7 +46,7 @@ class FeatureBarNotifier extends StatefulWidget {
   int featureKey;
 }
 
-class _CardFeatureNotifierState extends State<FeatureBarNotifier> {
+class _FeatureBarNotifierState extends State<FeatureBarNotifier> {
   @override
   Widget build(BuildContext context) {
     return !FeatureNotifierStorage.read(widget.featureKey)
@@ -56,7 +56,7 @@ class _CardFeatureNotifierState extends State<FeatureBarNotifier> {
               child: Container(
                   padding: EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                      color: Colors.green[50],
+                      color: widget.backgroundColor ?? Colors.green[50],
                       border: Border.all(
                           width: widget.strokeWidth ?? 1,
                           color: widget.strokeColor ?? Colors.green),
