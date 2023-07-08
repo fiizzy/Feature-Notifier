@@ -1,4 +1,4 @@
-## 1.0.4 - 8/07/2023
+## 1.0.5 - 8/07/2023
 
 - Bug fix: default image asset displaying correctly
 - Bug fix: background color for notifiers correctly configured
