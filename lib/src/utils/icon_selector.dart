@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 
 Widget selectIcon({bool? showIcon, Widget? icon}) {
-  Image defaultIcon = Image.asset(
-    "asset/party.png",
-    height: 30,
+  // Image defaultIcon = Image.asset(
+  //   "asset/party.png",
+  //   height: 30,
+  // );
+
+  Icon defaultIcon = Icon(
+    Icons.check_circle,
+    color: Colors.green.shade800,
   );
 
   if (showIcon == true && icon == null) {

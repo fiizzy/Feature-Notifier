@@ -1,3 +1,7 @@
+## 1.0.6 - 24th July 2023
+
+- Bug fix: make default image a material Icon
+
 ## 1.0.5 - 8/07/2023
 
 - Bug fix: default image asset displaying correctly
