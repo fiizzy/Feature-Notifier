@@ -1,6 +1,6 @@
 # Feature Notifier
 
-<img src = "https://github.com/fiizzy/feature-notifier/blob/main/screenshots/logo.png?raw=true" >
+<img src = "https://github.com/fiizzy/feature-notifier/blob/main/screenshots/logo.png" >
 
 Notify your users of new features within your app after an update.
 
