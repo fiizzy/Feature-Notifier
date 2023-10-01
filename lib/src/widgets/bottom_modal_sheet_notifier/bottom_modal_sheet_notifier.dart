@@ -30,6 +30,7 @@ class FeatureBottomModalSheetNotifier {
     Color? buttonTextColor,
     double? buttonTextFontSize,
     Color? descriptionColor,
+    Color? closeIconColor,
     double? descriptionFontSize,
     Widget? icon,
     void Function()? onTapButton,
@@ -40,7 +41,7 @@ class FeatureBottomModalSheetNotifier {
     bool? hasButton,
     bool? showIcon,
     Color? buttonBackgroundColor,
-    Widget? image,
+    Widget? body,
   }) async {
     !FeatureNotifierStorage.read(featureKey)
         ? showModalBottomSheet(
@@ -91,7 +92,7 @@ class FeatureBottomModalSheetNotifier {
                                 ],
                               ),
                               GestureDetector(
-                                child: Icon(Icons.close),
+                                child: Icon(Icons.close, color: closeIconColor),
                                 onTap: () {
                                   Navigator.pop(context);
                                   FeatureNotifierStorage.write(
@@ -107,7 +108,7 @@ class FeatureBottomModalSheetNotifier {
                             fontSize: descriptionFontSize ?? 16,
                             color: descriptionColor),
                       ),
-                      image ?? Container(),
+                      body ?? Container(),
                       Padding(
                         padding: const EdgeInsets.only(top: 12.0),
                         child: hasButton != null && hasButton != false

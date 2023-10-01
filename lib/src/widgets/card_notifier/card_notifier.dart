@@ -20,6 +20,7 @@ class FeatureCardNotifier extends StatefulWidget implements IFeatureNotifier {
       this.buttonText,
       this.backgroundColor,
       this.buttonTextColor,
+      this.closeIconColor,
       this.buttonTextFontSize,
       this.descriptionColor,
       this.descriptionFontSize,
@@ -38,6 +39,9 @@ class FeatureCardNotifier extends StatefulWidget implements IFeatureNotifier {
 
   @override
   Color? backgroundColor;
+
+  @override
+  Color? closeIconColor;
 
   @override
   String? buttonText;
@@ -150,7 +154,10 @@ class _FeatureCardNotifierState extends State<FeatureCardNotifier> {
                                   ],
                                 ),
                                 GestureDetector(
-                                  child: Icon(Icons.close),
+                                  child: Icon(
+                                    Icons.close,
+                                    color: widget.closeIconColor,
+                                  ),
                                   onTap: () {
                                     setState(() {
                                       FeatureNotifierStorage.write(

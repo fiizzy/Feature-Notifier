@@ -4,6 +4,7 @@ abstract class IFeatureNotifier {
   late int featureKey;
   late String title;
   late Color? titleColor;
+  late Color? closeIconColor;
   late double? titleFontSize;
   late String description;
   late Color? descriptionColor;

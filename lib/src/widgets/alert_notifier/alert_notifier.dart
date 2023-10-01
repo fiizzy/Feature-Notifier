@@ -26,6 +26,7 @@ class FeatureAlertNotifier {
     required String title,
     String? buttonText,
     Color? backgroundColor,
+    Color? closeIconColor,
     Color? buttonTextColor,
     double? buttonTextFontSize,
     Color? descriptionColor,
@@ -37,7 +38,7 @@ class FeatureAlertNotifier {
     bool? hasButton,
     bool? showIcon,
     Color? buttonBackgroundColor,
-    Widget? image,
+    Widget? body,
   }) async {
     !FeatureNotifierStorage.read(featureKey)
         ? showDialog(
@@ -73,7 +74,10 @@ class FeatureAlertNotifier {
                           ],
                         ),
                         GestureDetector(
-                          child: Icon(Icons.close),
+                          child: Icon(
+                            Icons.close,
+                            color: closeIconColor,
+                          ),
                           onTap: () {
                             Navigator.pop(context);
                             FeatureNotifierStorage.write(
@@ -93,7 +97,7 @@ class FeatureAlertNotifier {
                             fontSize: descriptionFontSize ?? 16,
                             color: descriptionColor),
                       ),
-                      image ?? Container(),
+                      body ?? Container(),
                       Padding(
                         padding: const EdgeInsets.only(top: 12.0),
                         child: hasButton != null && hasButton != false

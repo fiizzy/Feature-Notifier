@@ -39,6 +39,7 @@ class FeatureBarNotifier extends StatefulWidget {
   ///This is the tile of the feature that you want to show to your users
   String title;
   Color? titleColor;
+  Color? closeIconColor;
   double? titleFontSize;
   bool? showIcon = true;
 
@@ -83,7 +84,8 @@ class _FeatureBarNotifierState extends State<FeatureBarNotifier> {
                             ),
                           ),
                           GestureDetector(
-                            child: const Icon(Icons.close),
+                            child:
+                                Icon(Icons.close, color: widget.closeIconColor),
                             onTap: () {
                               setState(() {
                                 FeatureNotifierStorage.write(
