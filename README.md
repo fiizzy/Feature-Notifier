@@ -154,6 +154,22 @@ void initState() {
 
 ```
 
+## Customizing the body of a Notifier
+
+As from version 1.0.7, the `FeatureAlertNotifier()` and `FeatureBottomModalSheetNotifier()` now have the ability to add a custom body to their widget via the `body` parameter. Allowing you to pass in any widget of your choice for a better presentation flexibility.
+
+```dart
+   FeatureBottomModalSheetNotifier.notify(
+      context,
+      title: "Alert Notifier",
+      description: "Modal sheet is a good way to display a feature",
+      onClose: () {},
+      featureKey: 3,
+      hasButton: true,
+      body: Row(...)
+    );
+```
+
 ## Creating Custom Notifier
 
 The feature notifier package offers out of the box methods that allow you to create your custom notifications and manipulate state.
@@ -199,6 +215,7 @@ Color? strokeColor;
  double? strokeWidth;
  void Function() onTapCard; /// evoked when the feature notifier card is tapped
  bool? hasButton;
+ Widget? body /// add custom body to your notifier
 ```
 
 ## Contribution
