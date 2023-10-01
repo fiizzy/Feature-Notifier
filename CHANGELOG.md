@@ -1,3 +1,8 @@
+## 1.0.7 - 1st Oct 2023
+
+- feature: add body to `FeatureAlertNotifier()` and `FeatureBottomModalSheetNotifier()`
+- feature: ability to give the close icon desired color
+
 ## 1.0.6 - 24th July 2023
 
 - Bug fix: make default image a material Icon
